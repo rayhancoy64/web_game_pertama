@@ -1,0 +1,133 @@
+:root{
+    --cardcolor: lightskyblue;
+    --blueb: rgb(15, 16, 19);
+    --shadow: 0 5px 10px rgba(0,0,0,0.5);
+    
+
+}
+
+body {
+    margin: 0;
+    background-color: var(--blueb);
+}
+
+/* headar logo dan nama web */
+.header-web {
+    display: flex; 
+    align-items: center;
+    justify-content: center;  
+    background-color: var(--cardcolor);
+}
+
+
+
+/* menu pilihan beranda, game baru, dan profil */
+.menu {
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+    background-color: lightblue;
+    position: sticky;
+    top: 0;
+    box-shadow: var(--shadow);
+}
+
+
+/* rekomendasi game scroll samping */
+.section-title {
+    padding: 0 20px;
+    color: white;
+}
+
+.scroll-samping {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px 20px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    
+}
+
+.scroll-samping::-webkit-scrollbar {
+    display: none;
+}
+
+.promo-card {
+    flex: 0 0 auto;
+    width: 75vw;
+    max-width: 400px;
+    scroll-snap-align: center;
+    background-color: var(--cardcolor);
+    border-radius: 8px;
+    overflow: hidden;
+    
+}
+
+.promo-image {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    aspect-ratio: 16 / 9;
+}
+
+.promo-title {
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    color: var(--blueb);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+/* pilihan game scroll atas bawah */
+.main-content {
+    color: white;
+}
+
+.scroll-atasbawah {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.game-card {
+    background-color: var(--cardcolor);
+    color: var(--blueb);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.2 ease;
+}
+/* efek kotak sedikit membesar saat disorot mouse */
+.game-card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.game-image {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+}
+
+.game-title {
+    padding: 12px 10px;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+
