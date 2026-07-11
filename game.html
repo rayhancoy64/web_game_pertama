@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Game - SIMPELGAME</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- css untuk kolom pencarian -->
+     <style>
+        .search-container{
+            padding: 20px;
+            text-align: center;
+        }
+        .search-input {
+            width: 80%;
+            max-width: 500px;
+            padding:10px 15px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+        .search-btn {
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: none;
+            background-color: blue;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+     </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-web">
+        <div>
+            <h1>SIMPELGAME</h1>
+        </div>
+    </header>
+    <!-- Navbar -->
+        <nav class="menu">
+            <a href="index.html">Beranda</a>
+            <a href="game.html" class="active" >Game</a>
+            <a href="kategori.html">Kategori</a>
+            <a href="profil.html" >Profil</a>
+        </nav>
+    
+    <!-- kolom Pencarian -->
+     <section class="search-container">
+        <input type="text" id="input-cari" class="search-input" placeholder="Cari Game...">
+        <button class="search-btn">Cari</button>
+     </section>
+
+     <!-- katalog game lengkap -->
+
+    <section class="main-content">
+        <h3 class="section-title">Semua Game</h3>
+
+        <div class="scroll-atasbawah" id="daftar-game">
+
+        </div>
+    </section>
+
+<!-- script meload semua data game dari file data.js -->
+     <script src="data.js"></script>
+
+     <script>
+        // 1. tangkap elemen HTML
+        const wadahgame = document.getElementById('daftar-game');
+        const inputcari = document.getElementById('input-cari');
+        
+        // ubah judul menjadi kategori
+        const judulkatalog = document.querySelector('.section-title');
+
+        const urlparams = new URLSearchParams(window.location.search);
+        const filterkategori = urlparams.get('kategori');
+
+        let datatampil = databasegame;
+
+        if (filterkategori) {
+            datatampil = databasegame.filter(game => game.kategori === filterkategori);
+
+            if (judulkatalog){
+                judulkatalog.innerText = filterkategori.toUpperCase();
+            }
+        }
+
+
+        // fungsi khusus untuk mencetak game ke layar
+        function tampikangame(data) {
+            wadahgame.innerHTML = '';
+
+            // jika pencarian tidak ditemukan
+            if (data.length === 0) {
+                wadahgame.innerHTML = '<h3 style="color:red; ">Game tidak ditemukan.</h3>';
+                return; //berhenti di sini
+            }
+
+            data.forEach(game =>{
+                    wadahgame.innerHTML += `
+                        <a href="halaman-main.html?id=${game.id}" style="text-decoration: none;">
+                            <div class="game-card" >
+                                    <img src="${game.gambar}" alt="${game.judul}" class="game-image">
+                                    <h3 class="game-title">${game.judul}</h3>
+                            </div>
+                        </a>
+                    `;
+                });        
+        }
+
+        // saat dibuka pertama kali, tampilkan semua game
+        tampikangame(datatampil);
+
+        // fitur pencarian, akan dijalakan otomatis jika kolom pencarian di isi teks
+        inputcari.addEventListener('input', function(){
+            // ambil input dan ubah jadi huruf kecil
+            const katakunci = inputcari.value.toLowerCase();
+
+            // saring database. cari judul yang mengandung katakunci
+            const hasilpencarian = datatampil.filter(game => {
+                return game.judul.toLowerCase().includes(katakunci);
+
+            });
+
+        // tampilkan hasil pencarian
+        tampikangame(hasilpencarian);
+        });
+     </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- CSS untuk portofolio -->
+     <style>
+        .portfolio-container{
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        /* foto profil */
+        .creator-img {
+            width: 150px;
+            height: 150px;
+            background-color: blue;
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 4px solid white;
+        }
+
+        .creator-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .creator-name {
+            font-size: 28px;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        .creator-nim{
+            color: red;
+            font-size: 18px;
+            margin: 5px 0 20px 0;
+            font-weight: bold;
+        }
+
+        .about-box {
+            background-color: red;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-contact {
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-contact:hover{
+            background-color: blue;
+            transform: translateY(-3px);
+        }
+     </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-web">
+        <div>
+            <h1>SIMPELGAME</h1>
+        </div>
+    </header>
+        <!-- Navbar -->
+        <nav class="menu">
+            <a href="index.html">Beranda</a>
+            <a href="game.html" >Game</a>
+            <a href="kategori.html">Kategori</a>
+            <a href="profil.html" class="active">Profil</a>
+        </nav>
+
+    <section class="portfolio-container">
+        <!-- foto dan nama pembuat web -->
+        <div class="creator-img">
+            <img src="gambar game/sekiro.jpg" alt="foto pembuat">
+        </div>
+        <h2 class="creator-name">Rahmad Hidayat</h2>
+        <p class="creator-nim">240131097</p>
+
+        <!-- tentang web -->
+        <div class="about-box">
+            <h3 class="about-title">Tentang Proyek Ini</h3>
+            <p>selamat datang di <b>SIMPELGAME</b>! Website ini dibangun sebagai tugas Ujian Akhir Semester
+                (UAS) mata kuliah Pemrograman web. Tujuan dari website ini adalah untuk portfolio dari game
+                -game yang nantinya saya akan saya buat, agar memudahkan bagi siapa saja yang ingin mencoba
+                game buatan saya.
+            </p>
+            <p>
+                Website ini dibangun menggunakan HTML, CSS, dan JS, mengimplementasikan fitur seperti Flexbox, 
+                CSS Grid, dan tata letak yang ramah pengguna.
+            </p>
+        </div>
+
+        <h3 class="about-title">Hubungi Saya</h3>
+        <div class="contact-container">
+            <a href="#" class="btn-contact">Email</a>
+            <a href="#" class="btn-contact">ig</a>
+            <a href="#" class="btn-contact">github</a>
+        </div>
+    </section>
+</body>
+</html>

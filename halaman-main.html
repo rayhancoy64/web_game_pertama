@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memuat Game...</title>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+            color: white;
+        }
+
+        /* pengaturan header */
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 15px 20px;
+            background-color: lightskyblue;
+            border-radius: 4px solid black;
+        }
+
+        .btn-back{
+            position: absolute;
+            left: 20px;
+            color: black;
+            text-decoration: none;
+            font-size: 35px;
+            font-weight: bold;
+            line-height: 1;
+            transition: transform 0.2s;
+        }
+
+        .btn-back:hover {
+            color: red;
+            transform: scale(1.1);
+        }
+
+        .judul-game {
+            margin: 0;
+            color: black;
+            font-size: 28px;
+            text-transform: uppercase;
+        }
+
+        /* pengaturan layar game */
+        .game-wrapper {
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .game-container {
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            background-color: white;
+            border: 4px solid red;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header class="top-bar">
+        <!-- tombol kembali -->
+        <a href="index.html" class="btn-back" title="kembali">&#10094;</a>
+        <!-- tempat menampilkan judul game -->
+        <h2 id="judul-tampil" class="judul-game">Memuat Game...</h2>
+    </header>
+
+    <!-- layar game -->
+     <main class="game-wrapper">
+        <div class="game-container">
+            <iframe id="frame-game" src="" allowfullscreen="true" scrolling="no"></iframe>
+        </div>
+     </main>
+
+    <!-- script js untuk logika -->
+    <script src="data.js"></script>
+
+    <!-- script memuat game dinamis -->
+     <script>
+        // ambil parameter id dari URL
+        const urlparams = new URLSearchParams(window.location.search);
+        const gameid = parseInt(urlparams.get('id'));
+
+        // tangkap elemen HTML yang ingin diubah
+        const framegame = document.getElementById('frame-game');
+        const judultampil = document.getElementById('judul-tampil');
+
+        // cari data game di dalam databasegame
+        const gameditemukan = databasegame.find(game => game.id === gameid);
+
+        // eksekusi jika game ditemukan
+        if (gameditemukan) {
+            // ubah teks judul dan title web
+            judultampil.innerText = gameditemukan.judul;
+            document.title = gameditemukan.judul + " - SIMPELGAME";
+
+            // masukan link file game ke dalam iframe
+            framegame.src = gameditemukan.file + "/index.html";
+        } else {
+            judultampil.innerText = "Game tidak ditemukan";
+            judultampil.style.color = "red";
+            document.title = "Error - Game tidak ditemukan";
+        }
+     </script>
+
+</body>
+</html>
