@@ -212,7 +212,7 @@ h1, h2, h3, .judul-game, .creator-name {
 
 .scroll-atasbawah {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     gap: 20px;
     padding: 20px;
     background-color: var(--warnakartu);
@@ -302,9 +302,6 @@ h1, h2, h3, .judul-game, .creator-name {
 @media (max-width: 768px){
     .scroll-btn {
         display: none;
-    }
-    .scroll-atasbawah{
-        grid-template-columns: repeat(2, 1fr);
     }
 }
 
