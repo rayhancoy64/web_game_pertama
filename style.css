@@ -303,6 +303,9 @@ h1, h2, h3, .judul-game, .creator-name {
     .scroll-btn {
         display: none;
     }
+    .scroll-atasbawah{
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* RESPONSIVE TOMBOL DI PENCET */
