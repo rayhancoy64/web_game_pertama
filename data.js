@@ -6,7 +6,7 @@ const databasegame = [
         judul: "Game RPG",
         kategori: "rpg",
         gambar: "gambar game/elden-ring.jpg",
-        file: "game-main/sekoden",
+        file: "game-main/flapy_bird",
         status: "rilis"
     },
     {
