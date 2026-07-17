@@ -58,8 +58,8 @@
         const wadahrekomendasi = document.getElementById('rekomendasi-container');
         const wadahpilihan = document.getElementById('pilihan-container');
 
-        // 2. ambil 3 game pertama dari database untuk rekomendasi game
-        const gamerekomendasi = databasegame.slice(0, 5)
+        // 2. ambil 7 game pertama dari database untuk rekomendasi game
+        const gamerekomendasi = databasegame.slice(0, 7)
 
         gamerekomendasi.forEach(game => {
             // buat variabel kosong untuk ikon
@@ -75,7 +75,7 @@
             wadahrekomendasi.innerHTML += `
                 <div class="promo-card" >
                     <a href="halaman-main.html?id=${game.id}" style="text-decoration: none;">
-                        <img src="${game.gambar}" alt="${game.judul}" class="promo-image">
+                        <img src="${game. promo_gmbr}" alt="${game.judul}" class="promo-image">
                         <h5 class="promo-title">${game.judul}</h5>
                         ${badgehtml}
                     </a>
