@@ -16,8 +16,8 @@ const databasegame = [
         kategori: "aksi",
         gambar: "gambar game/hollow_knight_silksong.jpg",
         promo_gmbr: "promo_gambar/hollow_knight_silksong.jpg",
-        file: "game-main/aksi-file",
-        status: "belum_rilis"
+        file: "game-main/game_platformer",
+        status: "rilis"
     },
     {
         id: 3,
