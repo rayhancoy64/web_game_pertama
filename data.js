@@ -146,7 +146,7 @@ const databasegame = [
     },
     {
         id: 18,
-        judul: "Little_Nightmares",
+        judul: "Little Nightmares",
         kategori: "teka-teki",
         gambar: "gambar game/little_nightmares.jpg",
         file: "game-main/teka-teki-file",
